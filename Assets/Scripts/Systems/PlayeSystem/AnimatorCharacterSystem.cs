@@ -8,11 +8,14 @@ public class AnimatorCharacterSystem : ComponentSystem
 {
     protected override void OnUpdate()
     {
-        //Debug.Log("LOL");
-        Entities.ForEach((Entity entity, ref AnimatorCharacterComponent character, ref PhysicsVelocity velocity) =>
+        float x = Input.GetAxis("Horizontal");
+        float y = Input.GetAxis("Vertical");
+
+        Entities.ForEach((Entity entity, ref AnimatorCharacterComponent character) =>
         {
             var animator = EntityManager.GetComponentObject<Animator>(character.animatorEntity);
-            animator.SetFloat("speed", math.length(velocity.Linear));
+            animator.SetFloat("horizontal", x);
+            animator.SetFloat("vertical", y);
         });
     }
 }

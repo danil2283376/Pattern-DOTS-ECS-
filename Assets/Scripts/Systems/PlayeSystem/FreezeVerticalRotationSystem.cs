@@ -27,7 +27,7 @@ partial class FreezeVerticalRotationSystem : SystemBase
 
     protected JobHandle UpdateJob(JobHandle inputDeps) 
     {
-        JobHandle job = Entities.ForEach((ref FreezeVerticalRotationComponent tag, ref PhysicsMass mass) => 
+        JobHandle job = Entities.ForEach((ref FreezeVerticalRotationComponent tag, ref PhysicsMass mass) =>
         {
             mass.InverseInertia.xz = new float2(0.0f);
         }).Schedule(inputDeps);

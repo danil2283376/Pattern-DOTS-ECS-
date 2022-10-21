@@ -7,11 +7,11 @@ public class AnimatedCharacterDeathSystem : ComponentSystem
     {
         Entities.ForEach((Entity entity, ref AnimatorCharacterComponent character, ref HealthComponent health) =>
         {
-            var animator = EntityManager.GetComponentObject<Animator>(character.animatorEntity);
+            //var animator = EntityManager.GetComponentObject<Animator>(character.animatorEntity);
             if (health.value <= 0) 
             {
-                animator.SetTrigger("Die");
-                EntityManager.RemoveComponent<HealthComponent>(entity);
+                //animator.SetTrigger("Die");
+                //EntityManager.RemoveComponent<HealthComponent>(entity);
             }
         });
     }

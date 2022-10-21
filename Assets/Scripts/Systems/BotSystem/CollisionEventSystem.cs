@@ -28,7 +28,7 @@ partial class CollisionEventSystem : SystemBase
             else
                 return;
 
-            Debug.Log("NIGGGER");
+            //Debug.Log("NIGGGER");
 
             var bullet = bulletRef[bulletEntity];
             bullet.Destroyed = true;
@@ -49,7 +49,7 @@ partial class CollisionEventSystem : SystemBase
 
     protected override void OnCreate()
     {
-        Debug.Log("sad1");
+       //Debug.Log("sad1");
         this.RegisterPhysicsRuntimeSystemReadWrite();
         buildPhysicsWorldSystem = World.GetOrCreateSystem<BuildPhysicsWorld>();
         stepPhysicsWorld = World.GetOrCreateSystem<StepPhysicsWorld>();
@@ -58,29 +58,14 @@ partial class CollisionEventSystem : SystemBase
 
     protected override void OnUpdate()
     {
-        Debug.Log("sad");
+        //Debug.Log("sad");
 
         var job = new CollisionEventSystemJob
         {
             bulletRef = GetComponentDataFromEntity<BulletComponent>(isReadOnly: false),
             healthRef = GetComponentDataFromEntity<HealthComponent>(isReadOnly: false)
         }.Schedule(stepPhysicsWorld.Simulation, this.Dependency);
-
-        //var commandBuffer = endSimulationEntityCommandBuffer.CreateCommandBuffer().AsParallelWriter();
-        //var result = Entities.ForEach((Entity entity, int entityInQueryIndex, ref BulletComponent bullet) =>
-        //{
-        //    if (bullet.Destroyed)
-        //        commandBuffer.DestroyEntity(entityInQueryIndex, entity);
-        //}).Schedule(jobResult);
-
-        //endSimulationEntityCommandBuffer.AddJobHandleForProducer(result);
-
-        //result.Complete();
         job.Complete();
-
-        //this.Dependency = jobResult;
-
-        //endSimulationEntityCommandBuffer.AddJobHandleForProducer(result);
     }
 
     //protected JobHandle UpdateJob(JobHandle inputDeps)

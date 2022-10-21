@@ -3,21 +3,34 @@ using System.Collections.Generic;
 using Unity.Entities;
 using Unity.Physics;
 using Unity.Transforms;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class RotateToPlayerSystem : ComponentSystem
 {
+    protected override void OnCreate()
+    {
+        //Entities.ForEach((ref RotateToPlayerComponent moveBotComponent, ref SpawnBotsComponent spawnBotsComponent) => 
+        //{
+        //    moveBotComponent.Player = spawnBotsComponent.PlayerUnity;
+        //});
+    }
+
     protected override void OnUpdate()
     {
-        Debug.Log("a");
+        //Debug.Log("a");
         Entities.ForEach(
             (Entity bot,
                 ref RotateToPlayerComponent moveBotComponent,
                     ref LocalToWorld localToWorld,
-                        ref HealthComponent healthComponent) =>
+                        ref HealthComponent healthComponent,
+                            ref PlayerComponent playerComponent) =>
             {
+                moveBotComponent.Player = playerComponent.Player;
                 if (healthComponent.value > 0)
                 {
+                    Debug.Log("SOSAT");
+                    //moveBotComponent.Player = spawnBotsComponent.PlayerUnity;
                     Transform transformBot = EntityManager.GetComponentObject<Transform>(moveBotComponent.Bot);
                     Transform transformPlayer = EntityManager.GetComponentObject<Transform>(moveBotComponent.Player);
                     transformBot.LookAt(transformPlayer);
