@@ -101,8 +101,8 @@ public partial class AsteroidSpawnSystem : SystemBase
                 //UnityEngine.Vector3.RotateTowards();
                 //Теперь мы установим VelocityComponent наших астероидов
                 //здесь мы генерируем случайный Vector3 с x, y и z между -1
-                //var randomVel = new UnityEngine.Vector3(rand.NextFloat(-1f, 1f), rand.NextFloat(-1f, 1f), rand.NextFloat(-1f, 1f));
-                var randomVel = new UnityEngine.Vector3(0, 0, -1f);
+                var randomVel = new UnityEngine.Vector3(rand.NextFloat(-1f, 1f), rand.NextFloat(-1f, 1f), rand.NextFloat(-1f, 1f));
+                //var randomVel = new UnityEngine.Vector3(0, 0, -1f);
                 // затем мы нормализуем его, чтобы он имел величину 1
                 randomVel.Normalize();
                 //теперь мы устанавливаем величину, равную настройкам игры

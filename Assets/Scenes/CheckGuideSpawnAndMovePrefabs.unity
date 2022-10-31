@@ -632,9 +632,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   numAsteroids: 50000
-  levelWidth: 500
-  levelHeight: 5
-  levelDepth: 500
+  levelWidth: 1000
+  levelHeight: 1000
+  levelDepth: 1000
   asteroidVelocity: 0.2
 --- !u!114 &659734109
 MonoBehaviour:
