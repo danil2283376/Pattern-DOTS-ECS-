@@ -28,7 +28,7 @@ partial class CollisionEventSystem : SystemBase
             else
                 return;
 
-            //Debug.Log("NIGGGER");
+            
 
             var bullet = bulletRef[bulletEntity];
             bullet.Destroyed = true;
