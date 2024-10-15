@@ -8,7 +8,6 @@ public class PlayerMovementSystem : ComponentSystem
 {
     protected override void OnUpdate()
     {
-        //Debug.Log("Pidr");
         float deltaTime = Time.DeltaTime;
 
         float2 input = new float2(
